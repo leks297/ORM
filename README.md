@@ -18,23 +18,23 @@ Execute Django admin and create details for 10 cars
 
 # PROGRAM
 from django.contrib import admin
-from.models import Car,CarAdmin
-admin.site.register(Car,CarAdmin)
+from .models import owner,ownerAdmin
+admin.site.register(owner,ownerAdmin)
 
 from django.db import models
 from django.contrib import admin
-class Car(models.Model):
-    car_name= models.CharField()
-    car_model = models.CharField()
-    release_date = models.DateField()
-    millage = models.IntegerField()
-    color = models.CharField()
+class owner(models.Model):
+    car_no=models.IntegerField()
+    colour=models.CharField(max_length=10)
+    product_no=models.IntegerField()
+    brand=models.CharField(max_length=10)
+class ownerAdmin(admin.ModelAdmin):
+    list_display=["car_no","colour","product_no","brand"]   
 
-class CarAdmin(admin.ModelAdmin):
-    list_display = ('car_name', 'car_model', 'release_date', 'millage', 'color')
+
 # OUTPUT
 Include the screenshot of your admin page.
-![ORM output](https://github.com/user-attachments/assets/b5c49e4c-c94c-422a-bbb3-38687e0e6a59)
+<img width="1266" height="512" alt="ORM OUTPUT" src="https://github.com/user-attachments/assets/b61d4306-e44d-4cfe-9a39-e82f734b07d6" />
 
 # RESULT
 Thus the program for creating a database using ORM hass been executed successfully
